@@ -5,7 +5,6 @@ import time, os,sys
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
 from selenium import webdriver
-from CA
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from CAN_speaker import *
 from CAN_terminal_chat import *
