@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<script src = "../static/js/TeamCan.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/css/TeamCan.css">
+<link href="https://webfontworld.github.io/tmon/Tmon.css" rel="stylesheet">
+<img src="{{url_for('static',filename='image/')}}">
+<head>
+<title>Team C.A.N.</title>
+</head>
+<body>
+<div class ="Header">
+  <div class = "Menu_space"></div>
+  <div class = "Menu" OnClick="location.href ='/home'">Home</div>
+  <div class = "Menu" OnClick="location.href ='/chat'">Chat</div>
+  <form action="/process_voice" method="POST">
+   <input type="submit" value="음성 처리 시작">
+  <!--<div class = "Menu" onclick="srcChange()">Download</div>!-->
+  <div class = "Menu_space"></div>
+  <div class = "Login_Space">
+  <!--<div class = "Login_Button"  OnClick="location.href ='signup/build/index.html'">Login</div>-->
+  </div>
+</div>
+
+<div class="Introduce">
+  <h1>물어봐<br>알려줄게<br>뭐든지.</h1>
+  <h2></h2>
+  <div class="Introduce_Button">
+    <a href="#Introduce_Box">소개할게</a>
+ </div>
+</div>
+<br><br><br><br><br><br>
+
+<div class="flip" id="Introduce_Box">
+  <div class="front" style="background-image: url(https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb)">
+   <h1 class="text-shadow">채팅으로<br>대화하기</h1>
+  </div>
+  <div class="back">
+   <h2>네가 궁금해</h2>
+   <p>C.A.N과 채팅으로 대화를 해보자</p>
+   <p>네가 한 말들을 기억할게</p>
+  </div>
+</div>
+<div class="flip">
+    <div class="front" style="background-image: url(https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb)">
+       <h1 class="text-shadow">음성으로<br>대화하기</h1>
+    </div>
+    <div class="back">
+       <h2>이것도 가능해?</h2>
+       <p>C.A.N과 음성으로 대화를 해보자</p>
+       <p>너랑 이야기해보고 싶었어</p>
+    </div>
+</div>
+<div class="flip">
+    <div class="front" style="background-image: url(https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb)">
+       <h1 class="text-shadow">다양한<br>가능성</h1>
+    </div>
+    <div class="back">
+       <h2>네가 원한다면?</h2>
+       <p>나는 최선을 다해서 뭐든지 만들거야</p>
+       <P>무엇을 원해?</P>
+    </div>
+</div>
+<div class="Introduce_Button">
+   <a href="/chat">시작해봐</a>
+</div>
+<br>
+<br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <script src = "{{url_for('static',filename='js/TeamCan.js')}}"></script>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/TeamCan.css')}}">
+  <link href="https://webfontworld.github.io/tmon/Tmon.css" rel="stylesheet">
+<head>
+    <title>Chating</title>
+</head>
+<body>
+  <div class ="Header">
+    <div class = "Menu_space"></div>
+    <div class = "Menu" OnClick="location.href ='/home'">Home</div>
+        
+    <!--<div class = "Menu" onclick="srcChange()">Download</div>!-->
+    <div class = "Menu_space"></div>
+    <div class = "Login_Space">
+    <!--<div class = "Login_Button"  OnClick="location.href ='signup/build/index.html'">Login</div>-->
+    </div>
+  </div>
+    <div class="Chat">
+        <div class="Chatpage" id="chatPage">
+            <!-- 여기에 채팅 내용이 표시될 부분 -->
+        </div>
+        <div class="Chattext">
+            <form id="chatForm">
+                <input type="text" class="Chattext1" id="userInput" placeholder="질문해봐">
+                <input type="submit" class="Chatsubmit" value="전송">
+            </form>
+        </div>
+    </div>
+    <div id="chatPage"></div>
+    <script>
+        document.getElementById('chatForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const userInput = document.getElementById('userInput').value;
+            if (userInput.trim() === '') return;
+
+            const response = await fetch('/get_response', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `user_input=${encodeURIComponent(userInput)}`
+            });
+
+            const text = await response.text();
+            document.getElementById('chatPage').innerHTML += `<p><strong>User:</strong> ${userInput}</p>`;
+            document.getElementById('chatPage').innerHTML += `<p><strong>Chatbot:</strong> ${text}</p>`;
+            
+            document.getElementById('userInput').value = '';
+        });
+    </script>
+</body>
+</html>

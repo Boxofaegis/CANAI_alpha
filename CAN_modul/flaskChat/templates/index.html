@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <form id="chatForm">
+        <input type="text" id="userInput" name="user_input">
+        <input type="submit" value="전송">
+    </form>
+    <div id="chatlog"></div>
+    <script>
+        document.getElementById('chatForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const userInput = document.getElementById('userInput').value;
+            if (userInput.trim() === '') return;
+            
+            const response = await fetch('/get_response', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `user_input=${encodeURIComponent(userInput)}`
+            });
+            
+            const text = await response.text();
+            document.getElementById('chatlog').innerHTML += `<p><strong>User:</strong> ${userInput}</p>`;
+            document.getElementById('chatlog').innerHTML += `<p><strong>Chatbot:</strong> ${text}</p>`;
+            
+            document.getElementById('userInput').value = '';
+        });
+    </script>
+</body>
+</html>

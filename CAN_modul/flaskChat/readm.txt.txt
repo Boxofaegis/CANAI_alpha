@@ -1,0 +1,2 @@
+flask 다운 pip install flask
+아무튼 html을 templates에 넣어야 flask가 찾을 수 있어요 
