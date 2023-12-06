@@ -1,0 +1,11 @@
+백
+CAN_modul 내부 
+CAN_somthing_ko
+/////////////////////
+app.py
+CAN_speaker
+CAN_terminal_chat
+프론트
+templates 내부
+Chating
+TeamCan
