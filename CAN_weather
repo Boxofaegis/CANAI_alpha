@@ -1,6 +1,6 @@
-
 import requests
 import json
+from app import *
 def CAN_weather_sr(city):
 
     apiKey = '6420fce40f49219f6973ef24be638fc7'
