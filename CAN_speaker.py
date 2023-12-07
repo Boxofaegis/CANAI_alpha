@@ -10,8 +10,7 @@ import CAN_speaker as ma
 import importlib
 importlib.reload(ma)
 
-openai.api_key = 'sk-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'
-
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 # language_models = {
 #     'ko': sr.Microphone(device_index=0),  # Korean language model
 #     'en': sr.Microphone(device_index=1),  # English language model
