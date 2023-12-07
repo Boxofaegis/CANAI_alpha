@@ -8,7 +8,7 @@ from openai.openai_object import OpenAIObject
 
 
 
-openai.api_key = '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'
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 def get_response(query):
     
