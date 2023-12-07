@@ -13,7 +13,7 @@ from CAN_speaker import *
 from CAN_weather import *
 from CAN_modul.city_name import *
 import requests
-openai.api_key = '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'
+openai.api_key = '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'
 
 
 r=sr.Recognizer()
