@@ -8,7 +8,7 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from CAN_speaker import *
 from CAN_terminal_chat import *
 
-openai.api_key = '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'
+openai.api_key = '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'
 app = Flask(__name__, template_folder="templates")
 
 CORS(app, resources={r"/*": {"origins": "*"}})
