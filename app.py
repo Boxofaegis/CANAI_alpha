@@ -4,12 +4,11 @@ import speech_recognition as sr
 import time, os,sys
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
-from selenium import webdriver
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from CAN_speaker import *
 from CAN_terminal_chat import *
+
 openai.api_key = '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'
-driver = webdriver.Chrome()
 app = Flask(__name__, template_folder="templates")
 
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -28,11 +27,13 @@ def Chating():
 def TeamCan():
     return render_template('TeamCan.html')
 
-@app.route('/get_response', methods=['POST'])
+@app.route('/get_response', methods=['POST']) # type: ignore
 def get_bot_response():
+    cities=city_w_name()
     user_input = request.form['user_input']
     if user_input.lower() == '종료':
         return "채팅을 종료합니다."
+                        
     else:
         gpt_response = get_response(user_input)
         return gpt_response
@@ -45,7 +46,8 @@ def process_voice():
     start_CAN=r.listen_in_background(m,CAN_listen)
     CAN_answer(start_CAN,language='ko')
     return jsonify({response:start_CAN})
-    
+
+
         
 
 if __name__ == "__main__":

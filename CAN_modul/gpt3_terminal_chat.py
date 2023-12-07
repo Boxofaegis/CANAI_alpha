@@ -13,7 +13,7 @@ openai.api_key = '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'
 def get_response(query):
     
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo",
-            messages=[{"role":"user","content":query}],max_tokens=50)
+            messages=[{"role":"user","content":query}],max_tokens=200)
     response = cast(OpenAIObject, response)
     return response['choices'][0]['message']['content']
 def start_terminal_chat():
