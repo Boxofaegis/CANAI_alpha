@@ -10,7 +10,7 @@ import CAN_speaker as ma
 import importlib
 importlib.reload(ma)
 
-openai.api_key = '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'
+openai.api_key = 'sk-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'
 
 # language_models = {
 #     'ko': sr.Microphone(device_index=0),  # Korean language model
